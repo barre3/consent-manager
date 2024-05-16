@@ -1,5 +1,5 @@
 {
-  "name": "@segment/consent-manager",
+  "name": "@barre3/consent-manager",
   "version": "5.8.1",
   "description": "Drop-in consent management plugin for analytics.js",
   "keywords": [
@@ -8,7 +8,7 @@
     "analytics",
     "analytics.js"
   ],
-  "repository": "segmentio/consent-manager",
+  "repository": "barre3/consent-manager",
   "license": "MIT",
   "main": "commonjs/index.js",
   "module": "esm/index.js",
@@ -65,7 +65,7 @@
     "@types/isomorphic-fetch": "^0.0.35",
     "@types/jest": "^24.0.18",
     "@types/js-cookie": "^2.2.2",
-    "@types/lodash": "^4.14.186",
+    "@types/lodash": "^4.17.1",
     "@types/nanoid": "^2.1.0",
     "@types/nock": "^11.1.0",
     "@types/node": "^12.7.11",
@@ -104,9 +104,9 @@
     "sinon": "^5.0.7",
     "size-limit": "^0.17.0",
     "ts-jest": "^24.1.0",
-    "ts-loader": "^6.2.0",
-    "ts-node": "^8.4.1",
-    "typescript": "^3.7.0-beta",
+    "ts-loader": "^8.2.0",
+    "ts-node": "^10.8.1",
+    "typescript": "^4.1.6",
     "webpack": "^4.8.2",
     "webpack-cli": "^3.1.1"
   },
@@ -143,11 +143,6 @@
       "limit": "55 KB"
     }
   ],
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
-  },
   "prettier": {
     "tabWidth": 2,
     "semi": false,
