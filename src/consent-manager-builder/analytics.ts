@@ -17,6 +17,16 @@ interface AnalyticsParams {
   categoryPreferences: CategoryPreferences | null | undefined
 }
 
+// Liberto added to change marketingAndAnalytics to analytics.
+// When marketingAndAnalytics==true also send a analytics=true
+function customeOverideCategoryPreferences(categoryPreferences: CategoryPreferences) {
+  if (categoryPreferences.marketingAndAnalytics) {
+    categoryPreferences.analytics = true
+  } else {
+    categoryPreferences.analytics = false
+  }
+  return categoryPreferences
+}
 function getConsentMiddleware(
   destinationPreferences,
   categoryPreferences,
@@ -25,7 +35,7 @@ function getConsentMiddleware(
   return ({ payload, next }) => {
     payload.obj.context.consent = {
       defaultDestinationBehavior,
-      categoryPreferences,
+      categoryPreferences: customeOverideCategoryPreferences(categoryPreferences),
       destinationPreferences
     }
     next(payload)
