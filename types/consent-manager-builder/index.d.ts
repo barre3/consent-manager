@@ -21,6 +21,7 @@ interface Props {
      * Provide a function to define whether or not consent should be required
      */
     shouldRequireConsent?: () => Promise<boolean> | boolean;
+    disableSegmentLoad?: boolean;
     /**
      * Render props for the Consent Manager builder
      */
@@ -94,6 +95,7 @@ export default class ConsentManagerBuilder extends Component<Props, State> {
         otherWriteKeys: never[];
         onError: undefined;
         shouldRequireConsent: () => boolean;
+        disableSegmentLoad: boolean;
         initialPreferences: {};
         cdnHost: string;
         shouldReload: boolean;

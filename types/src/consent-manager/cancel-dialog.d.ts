@@ -10,7 +10,7 @@ interface Props {
 }
 export default class CancelDialog extends PureComponent<Props> {
     static displayName: string;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
     componentDidMount(): void;
     componentWillUnmount(): void;
     handleSubmit: (e: any) => void;

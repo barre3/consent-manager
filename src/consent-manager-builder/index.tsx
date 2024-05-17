@@ -53,6 +53,8 @@ interface Props {
    */
   shouldRequireConsent?: () => Promise<boolean> | boolean
 
+  disableSegmentLoad?: boolean
+
   /**
    * Render props for the Consent Manager builder
    */
@@ -149,6 +151,7 @@ export default class ConsentManagerBuilder extends Component<Props, State> {
     otherWriteKeys: [],
     onError: undefined,
     shouldRequireConsent: () => true,
+    disableSegmentLoad: false,
     initialPreferences: {},
     cdnHost: 'cdn.segment.com',
     shouldReload: true,
@@ -217,6 +220,7 @@ export default class ConsentManagerBuilder extends Component<Props, State> {
       writeKey,
       otherWriteKeys = ConsentManagerBuilder.defaultProps.otherWriteKeys,
       shouldRequireConsent = ConsentManagerBuilder.defaultProps.shouldRequireConsent,
+      disableSegmentLoad = ConsentManagerBuilder.defaultProps.disableSegmentLoad,
       initialPreferences,
       mapCustomPreferences,
       defaultDestinationBehavior,
@@ -274,7 +278,8 @@ export default class ConsentManagerBuilder extends Component<Props, State> {
       shouldReload,
       devMode,
       defaultDestinationBehavior,
-      categoryPreferences: preferences
+      categoryPreferences: preferences,
+      disableSegmentLoad
     })
 
     this.setState({
@@ -326,7 +331,8 @@ export default class ConsentManagerBuilder extends Component<Props, State> {
       cookieExpires,
       cookieAttributes,
       mapCustomPreferences,
-      defaultDestinationBehavior
+      defaultDestinationBehavior,
+      disableSegmentLoad
     } = this.props
 
     this.setState(prevState => {
@@ -382,7 +388,8 @@ export default class ConsentManagerBuilder extends Component<Props, State> {
         shouldReload,
         devMode,
         defaultDestinationBehavior,
-        categoryPreferences: customPreferences
+        categoryPreferences: customPreferences,
+        disableSegmentLoad
       })
 
       return {

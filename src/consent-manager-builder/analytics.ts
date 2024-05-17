@@ -14,7 +14,8 @@ interface AnalyticsParams {
   shouldReload?: boolean
   devMode?: boolean
   defaultDestinationBehavior?: DefaultDestinationBehavior
-  categoryPreferences: CategoryPreferences | null | undefined
+  categoryPreferences: CategoryPreferences | null | undefined,
+  disableSegmentLoad?
 }
 
 // Liberto added to change marketingAndAnalytics to analytics.
@@ -50,7 +51,8 @@ export default function conditionallyLoadAnalytics({
   shouldReload = true,
   devMode = false,
   defaultDestinationBehavior,
-  categoryPreferences
+  categoryPreferences,
+  disableSegmentLoad = false
 }: AnalyticsParams) {
   const wd = window as WindowWithAJS
   const integrations = { All: false, 'Segment.io': true }
@@ -62,7 +64,7 @@ export default function conditionallyLoadAnalytics({
     }
 
     // Load a.js normally when consent isn't required and there's no preferences
-    if (!wd.analytics.initialized) {
+    if (!wd.analytics.initialized && !disableSegmentLoad) {
       wd.analytics.load(writeKey)
     }
     return
@@ -106,6 +108,8 @@ export default function conditionallyLoadAnalytics({
     // @ts-ignore: Analytics.JS type should be updated with addSourceMiddleware
     wd.analytics.addSourceMiddleware(middleware)
 
-    wd.analytics.load(writeKey, { integrations })
+    if (!disableSegmentLoad) {
+      wd.analytics.load(writeKey, { integrations })
+    }
   }
 }

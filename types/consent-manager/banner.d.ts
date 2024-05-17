@@ -16,6 +16,6 @@ interface BannerProps {
 }
 export default class Banner extends PureComponent<BannerProps> {
     static displayName: string;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }
 export {};

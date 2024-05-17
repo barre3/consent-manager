@@ -8,6 +8,7 @@ interface AnalyticsParams {
     devMode?: boolean;
     defaultDestinationBehavior?: DefaultDestinationBehavior;
     categoryPreferences: CategoryPreferences | null | undefined;
+    disableSegmentLoad?: any;
 }
-export default function conditionallyLoadAnalytics({ writeKey, destinations, destinationPreferences, isConsentRequired, shouldReload, devMode, defaultDestinationBehavior, categoryPreferences }: AnalyticsParams): void;
+export default function conditionallyLoadAnalytics({ writeKey, destinations, destinationPreferences, isConsentRequired, shouldReload, devMode, defaultDestinationBehavior, categoryPreferences, disableSegmentLoad }: AnalyticsParams): void;
 export {};

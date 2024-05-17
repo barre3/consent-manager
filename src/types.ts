@@ -111,6 +111,7 @@ export interface ConsentManagerProps {
   writeKey: string
   otherWriteKeys?: string[]
   shouldRequireConsent?: () => Promise<boolean> | boolean
+  disableSegmentLoad?: boolean
   implyConsentOnInteraction?: boolean
   cookieDomain?: string
   cookieName?: string

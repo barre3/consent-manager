@@ -73,6 +73,7 @@ export default class ConsentManager extends PureComponent<ConsentManagerProps, {
   static defaultProps = {
     otherWriteKeys: [],
     shouldRequireConsent: () => true,
+    disableSegmentLoad: false,
     implyConsentOnInteraction: false,
     onError: undefined,
     cookieDomain: undefined,
@@ -96,6 +97,7 @@ export default class ConsentManager extends PureComponent<ConsentManagerProps, {
       writeKey,
       otherWriteKeys,
       shouldRequireConsent,
+      disableSegmentLoad,
       implyConsentOnInteraction,
       cookieDomain,
       cookieName,
@@ -125,6 +127,7 @@ export default class ConsentManager extends PureComponent<ConsentManagerProps, {
         writeKey={writeKey}
         otherWriteKeys={otherWriteKeys}
         shouldRequireConsent={shouldRequireConsent}
+        disableSegmentLoad={disableSegmentLoad}
         cookieDomain={cookieDomain}
         cookieName={cookieName}
         cookieExpires={cookieExpires}

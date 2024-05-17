@@ -5,6 +5,7 @@ export default class ConsentManager extends PureComponent<ConsentManagerProps, {
     static defaultProps: {
         otherWriteKeys: never[];
         shouldRequireConsent: () => boolean;
+        disableSegmentLoad: boolean;
         implyConsentOnInteraction: boolean;
         onError: undefined;
         cookieDomain: undefined;
@@ -22,7 +23,7 @@ export default class ConsentManager extends PureComponent<ConsentManagerProps, {
         defaultDestinationBehavior: string;
         preferencesDialogTemplate: PreferenceDialogTemplate;
     };
-    render(): JSX.Element;
+    render(): React.JSX.Element;
     mergeTemplates: (newProps: PreferenceDialogTemplate, defaultPreferencesDialogTemplate: PreferenceDialogTemplate) => PreferenceDialogTemplate;
     getInitialPreferences: () => {};
     handleMapCustomPreferences: (destinations: Destination[], preferences: CategoryPreferences) => {
