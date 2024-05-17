@@ -25,7 +25,7 @@ export default class PreferenceDialog extends PureComponent<PreferenceDialogProp
         advertising: null;
         functional: null;
     };
-    render(): React.JSX.Element;
+    render(): JSX.Element;
     handleChange: (e: any) => void;
     handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
 }

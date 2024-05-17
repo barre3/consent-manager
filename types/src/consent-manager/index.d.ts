@@ -23,7 +23,7 @@ export default class ConsentManager extends PureComponent<ConsentManagerProps, {
         defaultDestinationBehavior: string;
         preferencesDialogTemplate: PreferenceDialogTemplate;
     };
-    render(): React.JSX.Element;
+    render(): JSX.Element;
     mergeTemplates: (newProps: PreferenceDialogTemplate, defaultPreferencesDialogTemplate: PreferenceDialogTemplate) => PreferenceDialogTemplate;
     getInitialPreferences: () => {};
     handleMapCustomPreferences: (destinations: Destination[], preferences: CategoryPreferences) => {
