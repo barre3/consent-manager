@@ -190,16 +190,16 @@ export default class Dialog extends PureComponent<DialogProps, {}> {
   componentDidMount() {
     const { innerRef } = this.props
 
+    document.body.appendChild(this.container)
+    document.body.addEventListener('keydown', this.handleEsc, false)
+    document.body.style.overflow = 'hidden'
+    innerRef(this.container)
     if (this.form) {
       const input: HTMLInputElement | null = this.form.querySelector('input,button')
       if (input) {
         input.focus()
       }
     }
-    document.body.appendChild(this.container)
-    document.body.addEventListener('keydown', this.handleEsc, false)
-    document.body.style.overflow = 'hidden'
-    innerRef(this.container)
   }
 
   componentWillUnmount() {
