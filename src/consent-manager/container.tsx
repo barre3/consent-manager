@@ -212,6 +212,13 @@ const Container: React.FC<ContainerProps> = props => {
 
   const handleCancelBack = () => {
     toggleCancel(false)
+    
+    if (preferenceDialog.current) {
+      const input: HTMLInputElement | null = preferenceDialog.current.querySelector('input,button')
+      if (input) {
+        input.focus()
+      }
+    }
   }
 
   const handleCancelConfirm = () => {
